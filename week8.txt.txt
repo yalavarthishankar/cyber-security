@@ -1,0 +1,80 @@
+Lab: RSA and Diffie-Hellman Algorithms
+
+Activity 1: Understanding RSA Step-by-Step
+
+Task 1: RSA Key Generation (Manual Calculation)
+
+1.  Choose two prime numbers p = 3 q = 11
+
+2.  Compute n = p × q n = 3 × 11 = 33
+
+3.  Compute Euler’s Totient Function ϕ(n) = (p − 1)(q − 1) ϕ(n) = (3 −
+    1)(11 − 1) ϕ(n) = 2 × 10 = 20
+
+4.  Choose public exponent e = 3 gcd(3,20) = 1
+
+5.  Compute private key d = e⁻¹ mod ϕ(n)
+
+3 × d mod 20 = 1 3 × 7 = 21 21 mod 20 = 1
+
+d = 7
+
+Public Key = (3, 33) Private Key = (7, 33)
+
+Task 2: Encrypt a Message
+
+Message: M = 5
+
+Encryption Formula: C = M^e mod n
+
+C = 5³ mod 33 5³ = 125 125 mod 33 = 26
+
+Ciphertext = 26
+
+Task 3: Decrypt the Message
+
+M = C^d mod n
+
+M = 26⁷ mod 33
+
+26² mod 33 = 16 26⁴ mod 33 = 25
+
+26⁷ = 26⁴ × 26² × 26
+
+25 × 16 = 400 mod 33 = 4 4 × 26 = 104 mod 33 = 5
+
+Decrypted Message = 5
+
+Activity 2: Diffie-Hellman Key Exchange
+
+Partner Name: Vishnu
+
+Public Values: p = 23 g = 5
+
+Private Values: Student 1 private key (a) = 6 Student 2 private key (b)
+= 15
+
+Public Keys:
+
+Student 1 A = g^a mod p A = 5⁶ mod 23 = 8
+
+Student 2 B = g^b mod p B = 5¹⁵ mod 23 = 19
+
+Exchange Public Keys: Student 1 sends A = 8 Student 2 sends B = 19
+
+Compute Shared Secret:
+
+Student 1: s = B^a mod p s = 19⁶ mod 23 = 2
+
+Student 2: s = A^b mod p s = 8¹⁵ mod 23 = 2
+
+Shared Secret = 2
+
+Security Analysis:
+
+RSA Security: Based on difficulty of factoring large prime numbers.
+
+Diffie-Hellman Security: Based on the Discrete Logarithm Problem.
+
+Hybrid Encryption: Diffie-Hellman exchanges the key and AES encrypts the
+message.
